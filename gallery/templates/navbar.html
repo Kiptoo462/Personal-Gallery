@@ -1,0 +1,55 @@
+{% include 'head.html' %}
+ {% include 'scripts.html' %}
+ {% load bootstrap3 %}
+ {% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <title>Document</title> -->
+
+    {% block styles %}
+    {% bootstrap_css %}
+  {% endblock %}
+</head>
+<body>
+    
+    <nav class="navbar navbar-expand-lg navbar-light" style="background: #2168af!important;height:50px">
+        <a class="navbar-brand" href="/">
+            <h3 >Personal-Gallery</h3>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/">
+                        <h4 class="font-weight-bold white-text">Home</h4> 
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle white-text" id="navbarDropdownMenuLink"  data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">Location
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        {% for location in locations %}
+                        <a class="dropdown-item" href="/?location={{location.id}}">{{location.name}}</a>
+                        {%endfor%}
+                    </div>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-md-0"  action="/search" role="search">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search by Category" name="search" aria-label="Search">
+                <button class="btn btn-warning btn-md my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+</body>
+</html>
