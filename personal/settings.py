@@ -16,6 +16,7 @@ import  dj_database_url
 from  decouple import config,Csv
 import django_heroku
 
+
 MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
@@ -49,16 +50,17 @@ ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-7agq-bru(u7i+hx&46bo=2)1l6o$(7io@ka-&vn)+=phue*jwz'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
+# DEBUG = config('DEBUG', cast=bool, default=True)
+# DEBUG= True
+# ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 
 # Application definition
@@ -98,7 +100,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                 'django.template.context_processors.media',
+                'django.template.context_processors.media',
                 
             ],
         },
@@ -111,14 +113,14 @@ WSGI_APPLICATION = 'personal.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'gallery',
-        'USER': 'moringa',
-    'PASSWORD':'12345',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'gallery',
+#         'USER': 'moringa',
+#     'PASSWORD':'12345',
+#     }
+# }
 
 
 # Password validation
