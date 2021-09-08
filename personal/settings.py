@@ -19,7 +19,7 @@ import django_heroku
 
 MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
-DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = os.environ.get('DEBUG', False)
 # development
 if config('MODE')=="dev":
    DATABASES = {
