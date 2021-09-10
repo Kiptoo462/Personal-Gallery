@@ -31,7 +31,7 @@ https://github.com/Kiptoo462/Personal-Gallery.git
 6. Open the application on your browser , preferably `chrome` using port `127.0.0.1:5000`
 
 ## Live link
-[Personal-Gallery](https://github.com/Kiptoo462/Personal-Gallery.git)
+[Personal-Gallery](https://gallery021.herokuapp.com/)
 
 ## BDD
      The user should be able to ;
